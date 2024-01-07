@@ -1,0 +1,6 @@
+
+<h1>Two way data binding by event binding + Interpollation</h1>
+Enter your name : <input #UserInput type="text">
+<button (click) = "Count(UserInput.value)">Submit</button>
+<h2>Length of the name is : {{LengthOfName}}</h2>
+<router-outlet></router-outlet>

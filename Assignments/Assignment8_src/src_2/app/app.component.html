@@ -1,0 +1,5 @@
+<h1>Demonstration of ICC (Parent to child and child to parent)</h1>
+
+<app-child [ChildData] = "PTC" (emitter) = "ParentData = $event"></app-child>
+<h2>Data from child : {{ParentData}}</h2>
+<router-outlet></router-outlet>

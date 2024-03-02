@@ -1,0 +1,11 @@
+<div>
+    <label for = "num" >Enter number :</label>
+    <input type="number" id = "num" #num>
+    <button (click) = 'CheckPrime(num.value)'>CheckPrime</button> : {{PrimeOrNot}}
+</div>
+<h1>--------------------------------------------------------</h1>
+<div>
+    <label for = "str" >Enter your name :</label>
+    <input type="text" id = "str" #str>
+    <button (click) = 'CountCapitalLetters(str.value)'>Count</button> : {{Count}}
+</div>

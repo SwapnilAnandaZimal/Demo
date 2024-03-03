@@ -1,0 +1,58 @@
+<h1 style="color: red; margin-left: 150px;">Contact Our</h1>
+<h1 style="color: black;margin-left: 50px;">Customer Support Center</h1>
+<h3 style="margin-left: 350px;">Contact Information</h3>
+<h4 style="margin-left: 300px;">Please fill out your contact information below</h4>
+<div>
+  <form [formGroup]="LoginForm" (ngSubmit)="LogData()">
+    <div>
+      <label for="name">Name*</label><br>
+      <input type="text" [class.invalid]="LoginForm.get('Name')?.touched && LoginForm.get('Name')?.invalid" id="name"
+        style="width: 800px; height: 30px;" formControlName="Name">
+      <div *ngIf="LoginForm.get('Name')?.touched && LoginForm.get('Name')?.invalid">
+        <small *ngIf="LoginForm.get('Name')?.errors?.['required']" style="color: red;">Name is required.</small>
+        <small *ngIf="LoginForm.get('Name')?.errors?.['pattern']" style="color: red;">Name should contains alphabet
+          only.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="email">Email*</label><br>
+      <input type="email" id="email"
+        [class.invalid]="LoginForm.get('Email')?.touched && LoginForm.get('Email')?.invalid"
+        style="width: 800px; height: 30px;" formControlName="Email">
+      <div *ngIf="LoginForm.get('Email')?.touched && LoginForm.get('Email')?.invalid">
+        <small *ngIf="LoginForm.get('Email')?.errors?.['required']" style="color: red;">Email is required</small>
+        <small *ngIf="LoginForm.get('Email')?.errors?.['email']" style="color: red;">Email format is not valid.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="phone">Phone*</label><br>
+      <input type="text" id="phone"
+        [class.invalid]="LoginForm.get('PhoneNumber')?.touched && LoginForm.get('PhoneNumber')?.invalid"
+        style="width: 800px; height: 30px;" formControlName="PhoneNumber">
+      <div *ngIf="LoginForm.get('PhoneNumber')?.touched && LoginForm.get('Email')?.invalid">
+        <small *ngIf="LoginForm.get('PhoneNumber')?.errors?.['required']" style="color: red;">PhoneNumber is
+          required</small>
+        <small *ngIf="LoginForm.get('PhoneNumber')?.errors?.['minlength']" style="color: red;">PhoneNumber length should
+          be 10.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="address">Address*</label><br>
+      <input type="text" id="address"
+        [class.invalid]="LoginForm.get('Address')?.touched && LoginForm.get('Address')?.invalid "
+        style="width: 800px; height: 30px;" formControlName="Address">
+        <div *ngIf="LoginForm.get('Address')?.touched && LoginForm.get('Address')?.invalid">
+        <small *ngIf = "LoginForm.get('Address')?.errors?.['required']" style="color: red;">Address is required.</small>
+        <small *ngIf = "LoginForm.get('Address')?.errors?.['minlength']" style="color: red;">Address length should be minimum 30 characters.</small>
+    </div>
+      </div>
+
+    <button type="submit" [disabled] = "LoginForm.invalid">Submit</button>
+  </form>
+  <p>-------------------------------------------------------------------------------------------</p>
+  {{LoginForm.value | json}}
+  <p>-------------------------------------------------------------------------------------------</p>
+</div>
